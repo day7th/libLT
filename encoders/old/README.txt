@@ -1,0 +1,1 @@
+The files LTencoderFLY_old.* do not make use of the hash table.

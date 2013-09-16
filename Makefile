@@ -18,7 +18,7 @@
 ##*****************************************************************************
 
 #CFLAGS=-DDEBUGprintRealeasedSymbol -msse2 -mmmx -Wall -funroll-loops # In python crash
-CFLAGS= -g -o3 -funroll-loops -Wall -Wstrict-aliasing -msse2 -mmmx
+CFLAGS= -g -o3 -funroll-loops -Wall -Wstrict-aliasing -msse2 -mmmx -fPIC
 #CFLAGS=-O3 -funroll-loops -msse2 -mmmx
 
 SRCS= $(wildcard */*.c)

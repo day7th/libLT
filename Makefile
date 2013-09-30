@@ -18,7 +18,16 @@
 ##*****************************************************************************
 
 #CFLAGS=-DDEBUGprintRealeasedSymbol -msse2 -mmmx -Wall -funroll-loops # In python crash
-CFLAGS= -g -o3 -funroll-loops -Wall -Wstrict-aliasing -msse2 -mmmx
+#CFLAGS= -g -o3 -funroll-loops -Wall -Wstrict-aliasing -msse2 -mmmx -fPIC
+CFLAGS= -g -o3 -funroll-loops -Wall -Wstrict-aliasing -fPIC
+SSE := $(shell grep -c sse /proc/cpuinfo)
+MMX := $(shell grep -c mmx /proc/cpuinfo)
+ifneq ($(SSE), 0)
+	CFLAGS += -msse2
+endif
+ifneq ($(MMX), 0)
+	CFLAGS += -mmmx
+endif
 #CFLAGS=-O3 -funroll-loops -msse2 -mmmx
 
 SRCS= $(wildcard */*.c)
